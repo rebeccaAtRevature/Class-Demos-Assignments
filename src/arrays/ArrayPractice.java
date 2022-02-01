@@ -29,15 +29,26 @@ public class ArrayPractice {
 		String output = "";
 		// create variable to store how many times a number is repeated
 		int[] repetitions = new int[array.length];
+		// create variable to store whether a number has been visited
+		boolean[] visited = new boolean[array.length];;
+		
 		for (int i = 0; i < array.length; i++) {
+			// for 
+			
 			// for each element of an array, compare to all other elements to determine repeats
 			for(int j = 0; j < array.length; j++) {
 				if (array[i] == array[j]) {
 					// for each element j that matches element i, increment the repetitions variable by 1
 					repetitions[i] += 1;
+					// indicate that the number at index i is a repitition of a previous number
+					visited[j] = true;
 				}	
 			}
-			output += "\n" + array[i] + " - " + repetitions[i];
+			// Check if the number at index i has already been visited
+			System.out.println(visited[i]);
+			if (visited[i] == false) {
+				output += "\n" + array[i] + " - " + repetitions[i];
+			}
 		}
 		return output;
 	}
@@ -103,12 +114,16 @@ public class ArrayPractice {
 			System.out.print("\n");
 			for (int j = 0; j < dimensionsA[1]; j++) {
 				// Iterate through each column and print each element of array
-				System.out.print(matrix[i][j] + "  ");
+				if (j != dimensionsA[1] - 1) {
+					System.out.print(matrix[i][j] + ",  ");
+				}else {
+					System.out.print(matrix[i][j]);
+				}
+				
 			}
 		}
 	}
-	
-	
+		
 	public static void irregularMarix(int[][] matrix){
 		// 5) Not sure what was asked for here but will print jagged array
 		System.out.print("\n");
@@ -117,7 +132,11 @@ public class ArrayPractice {
 			System.out.print("\n");
 			for (int j = 0; j < matrix[i].length; j++) {
 				// Iterate through each column and print each element of array
-				System.out.print(matrix[i][j] + "  ");
+				if (j != matrix[i].length - 1) {
+					System.out.print(matrix[i][j] + ",  ");
+				}else {
+					System.out.print(matrix[i][j]);
+				}
 			}
 		}
 	}
@@ -156,7 +175,7 @@ public class ArrayPractice {
 		}
 		System.out.println("Matrix A is full.\n");
 		
-				// Ask user to provide the dimensions of matrix B
+		// Ask user to provide the dimensions of matrix B
 		System.out.println("Please enter the number of rows in matrix B : ");
 		int rowsB = sc.nextInt();
 		System.out.println("Please enter the number of columns in matrix B : ");

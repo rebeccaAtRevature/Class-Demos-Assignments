@@ -83,35 +83,37 @@ public class LogicProcessFlowPractice {
 		return output;
 		
 	}
-	public static String oddUpToN(int num) {
+	public static StringBuffer oddUpToN(int num) {
 		// Method 4
 		// print odd numbers up to N
 		int i = 0;
-		String output = "";
-		output = "Method 4: ";
+		StringBuffer output = new StringBuffer("Method 4: ");
 		for(i = 1; i <= num; i = i + 2) {
-			output += i + ", ";
+			output = output.append(i + ", ");
 		}
+		// Truncate output string to remove final ", "
+		int lengthOfOutput = output.length() - 2;
+		output.setLength(lengthOfOutput);
 		// send output to be printed back to main
 		return output;
 	}
-	public static String factorialOfN(int num) {
+	public static StringBuffer factorialOfN(int num) {
 		// Method 5
 		// Print factorial of N
 		
 		// Initialize the variable for the factorial
 		int factorial = 1;
 		
-		String output = "Method 5: ";
+		StringBuffer output = new StringBuffer("Method 5: ");
 		
 		// Multiply the number by the next number down on the number line each loop
 		for(int i = 0; i < num; i++) {
 			factorial *= (num - i);
-			output += factorial + ", ";
+			output = output.append(factorial + ", ");
 		}
-		// Remove the space and comma after the last value
-		// output = StringUtils.chop(output);
-		// output = StringUtils.chop(output);
+		// Truncate output string to remove final ", "
+		int lengthOfOutput = output.length() - 2;
+		output.setLength(lengthOfOutput);
 		// send output to be printed back to main
 		return output;
 		
@@ -167,7 +169,7 @@ public class LogicProcessFlowPractice {
 		String output = "Method 7: " + sum;
 		return output;
 	}
-	public static String fibonacci(int num) {
+	public static StringBuffer fibonacci(int num) {
 		// Method 8
 		// Add the previous two numbers in a series to find the next one
 		
@@ -176,12 +178,12 @@ public class LogicProcessFlowPractice {
 		int fib2 = 0;
 		// Next value in the series
 		int fibonacci = 1;
-		String output = "Method 8: ";
+		StringBuffer output = new StringBuffer("Method 8: ");
 		// for loop will determine the next fibonacci number for N values
 		for(int i = 0; i < num; i++) {
 			// If statement to supress the output of fibonacci values less than N
 			if(fibonacci <= num) {
-				output += fibonacci + ", ";
+				output = output.append(fibonacci + ", ");
 			}
 			// Determine the next value in the sequence by adding the previous two
 			fibonacci = fib1 + fib2;
@@ -189,7 +191,10 @@ public class LogicProcessFlowPractice {
 			fib2 = fib1;
 			fib1 = fibonacci;
 		}
-		// New line
+		// Truncate output string to remove final ", "
+		int lengthOfOutput = output.length() - 2;
+		output.setLength(lengthOfOutput);
+		// Send output to main
 		return output;
 		
 		// code breaks after 89, numbers go negative
@@ -212,11 +217,11 @@ public class LogicProcessFlowPractice {
 		String output1 = checkForGreaterof2(num1, num2);
 		String output2 = checkForGreaterof3(num1, num2, num3);
 		String output3 = evenOrOdd(num1);
-		String output4 = oddUpToN(num1);
-		String output5 = factorialOfN(num1);
+		StringBuffer output4 = oddUpToN(num1);
+		StringBuffer output5 = factorialOfN(num1);
 		String output6 = checkForPrime(num1);
 		String output7 = sumOfDigits(num1);
-		String output8 = fibonacci(num1);
+		StringBuffer output8 = fibonacci(num1);
 		
 		System.out.println("Method 1: " + output1);
 		System.out.println("Method 2: " + output2);

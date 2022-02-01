@@ -16,7 +16,7 @@ public class RoomArrayDemo {
 		myRooms[3] = new Room();
 		
 		// Initialize an array of room objects
-		Room[] allRooms = {new Room(), new Room(), new Room(), new Room()};
+		//Room[] allRooms = {new Room(), new Room(), new Room(), new Room()};
 	
 	}
 

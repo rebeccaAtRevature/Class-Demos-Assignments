@@ -6,20 +6,25 @@ public class FordFigo {
 	int modelNo;
 	String color;
 	String carType;
+	static String modelName;
+	
+	static {
+		modelName = "FordFigo";
+	}
 	
 	String unlockCar() {
 		// declare a variable - local variables
-		return "FordFigo unlocked";
+		return modelName + " unlocked";
 	}
 	String lockCar() {
-		return "FordFigo locked";
+		return modelName + " locked";
 	}
 	String accelerate() {
-		return "FordFigo accelerated!";
+		return modelName + " accelerated!";
 	}
 	String applyBreaks() {
 		manualBreakSystem();
-		return "Breaks applied";
+		return modelName + " breaks applied!";
 	}
 	String startEngine() {
 		return "Engine Started";
